@@ -41,6 +41,17 @@ public class TrainingService {
         return listNotes;
     }
 
+    public List<noteDto> findNotesByTitre(String titre) {
+        final List<E_Note> resp = this.noteRepository.findByTitreIgnoreCase(titre);
+
+        List<noteDto> listNotes = new ArrayList<>();
+        resp.forEach(e -> {
+            noteDto d = mapper.maps(e);
+            listNotes.add(d);
+        });
+        return listNotes;
+    }
+
 
     public noteDto postNote(final noteDto noteDtos)  {
         noteDtos.setId(null);

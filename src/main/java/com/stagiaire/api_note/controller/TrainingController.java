@@ -30,6 +30,14 @@ public class TrainingController {
         return respService;
     }
 
+    @GetMapping("/notes/{titre}")
+    public List<noteDto> findNotesByTitre(@PathVariable("titre") String titreNote){
+        log.info("Recherche de note par titre '{}'",titreNote.toUpperCase());
+        final List<noteDto> rsltService = trainingService.findNotesByTitre(titreNote);
+        return rsltService;
+    }
+
+
     @PostMapping("/notes")
     public ResponseEntity<noteDto> postNote(@RequestBody @Valid noteDto noteDtos) {
         final noteDto respServ = this.trainingService.postNote(noteDtos);

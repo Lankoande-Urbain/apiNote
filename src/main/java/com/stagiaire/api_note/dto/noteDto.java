@@ -2,6 +2,8 @@ package com.stagiaire.api_note.dto;
 
 import lombok.*;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -14,4 +16,5 @@ public class noteDto {
     private String titre;
     private String description;
     private int userId;
+    private Date creationDate;
 }
