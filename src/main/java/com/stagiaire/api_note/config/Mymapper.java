@@ -1,4 +1,3 @@
-//package com.stagiaire.api_note.config;
 package com.stagiaire.api_note.config;
 import com.stagiaire.api_note.dto.noteDto;
 import com.stagiaire.api_note.entity.E_Note;
@@ -19,6 +18,7 @@ public interface Mymapper {
 
     @InheritInverseConfiguration
     E_Note maps(noteDto dto);
+
 
 }
 

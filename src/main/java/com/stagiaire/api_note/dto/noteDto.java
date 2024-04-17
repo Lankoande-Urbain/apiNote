@@ -1,19 +1,17 @@
 package com.stagiaire.api_note.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+//@Builder
 public class noteDto {
 
     private Long id;
 
-
     private String titre;
-    private String commentaire;
+    private String description;
+    private int userId;
 }

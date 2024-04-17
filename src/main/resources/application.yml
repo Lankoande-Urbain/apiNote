@@ -1,4 +1,5 @@
 spring:
+  debug: true
   datasource:
     url: jdbc:h2:file:./target/db # jdbc:h2:mem:test
     driverClassName: org.h2.Driver
@@ -10,5 +11,5 @@ spring:
     generate-ddl: true
 
 
-debug: true
+
 # liquibase & Flyway
