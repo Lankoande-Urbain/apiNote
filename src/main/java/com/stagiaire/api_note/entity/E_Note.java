@@ -25,7 +25,7 @@ public class E_Note {
     private String description;
 
     @Column(name = "userId")
-    private int userId;
+    private String userId;
 
     @Column(name = "creationDate", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)

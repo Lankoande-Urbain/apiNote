@@ -29,11 +29,17 @@ public class TrainingController {
         log.info("Les informations sont renvoyées");
         return respService;
     }
+    @GetMapping("/notes/{userId}")
+    public List<noteDto> fetchNotesByUserId(@PathVariable("userId") String userId) {
+        log.info("Recherche de note par userId '{}'",userId);
+        final List<noteDto> rsltService = trainingService.fetchNotesByUserId(userId);
+        return rsltService;
+    }
 
-    @GetMapping("/notes/{titre}")
-    public List<noteDto> findNotesByTitre(@PathVariable("titre") String titreNote){
+    @GetMapping("/notes/user/{userId}/titre/{titre}")
+    public List<noteDto> findNotesByTitre(@PathVariable("userId") String userId, @PathVariable("titre") String titreNote){
         log.info("Recherche de note par titre '{}'",titreNote.toUpperCase());
-        final List<noteDto> rsltService = trainingService.findNotesByTitre(titreNote);
+        final List<noteDto> rsltService = trainingService.findNotesByTitre(userId, titreNote);
         return rsltService;
     }
 

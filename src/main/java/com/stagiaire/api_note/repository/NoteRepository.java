@@ -11,6 +11,8 @@ import java.util.List;
 @Repository
 public interface NoteRepository extends JpaRepository<E_Note, Long> {
 
-    @Query("SELECT n FROM E_Note n WHERE LOWER(n.titre) LIKE LOWER(CONCAT('%', :titre, '%'))")
-    List<E_Note> findByTitreIgnoreCase(String titre);
+    @Query("SELECT n FROM E_Note n WHERE LOWER(n.titre) LIKE LOWER(CONCAT('%', :titre, '%')) AND n.userId = :userId")
+    List<E_Note> findByTitreIgnoreCase(String userId,String titre);
+
+    List<E_Note> findByUserId(String userId);
 }

@@ -41,8 +41,20 @@ public class TrainingService {
         return listNotes;
     }
 
-    public List<noteDto> findNotesByTitre(String titre) {
-        final List<E_Note> resp = this.noteRepository.findByTitreIgnoreCase(titre);
+    public List<noteDto> fetchNotesByUserId(String userId) {
+        final List<E_Note> resp = this.noteRepository.findByUserId(userId);
+
+        //
+        List<noteDto> listNotes = new ArrayList<>(); //conversion de la liste retournant l'entité YtCategory en DTO
+        resp.forEach(e -> {
+            noteDto d =  mapper.maps(e);
+            listNotes.add(d);
+        });
+        return listNotes;
+    }
+
+    public List<noteDto> findNotesByTitre(String userId, String titre) {
+        final List<E_Note> resp = this.noteRepository.findByTitreIgnoreCase(userId, titre);
 
         List<noteDto> listNotes = new ArrayList<>();
         resp.forEach(e -> {
